@@ -1,0 +1,739 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "0bfe8847",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "7"
+      ]
+     },
+     "execution_count": 1,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "a= begin \n",
+    "    x=3\n",
+    "    y=4\n",
+    "    x+y\n",
+    "end"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "ea8918e7",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "7"
+      ]
+     },
+     "execution_count": 2,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "a=(x=3;y=4;x+y)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "88e2439b",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "7"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "a=(x=3;\n",
+    "y=4;\n",
+    "x+y)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "9003af44",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "7"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "z=begin x=4; y=3; x+y end"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "14a6c4e1",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "LoadError",
+     "evalue": "TypeError: non-boolean (Int64) used in boolean context",
+     "output_type": "error",
+     "traceback": [
+      "TypeError: non-boolean (Int64) used in boolean context",
+      "",
+      "Stacktrace:",
+      " [1] top-level scope",
+      "   @ In[5]:1",
+      " [2] eval",
+      "   @ .\\boot.jl:360 [inlined]",
+      " [3] include_string(mapexpr::typeof(REPL.softscope), mod::Module, code::String, filename::String)",
+      "   @ Base .\\loading.jl:1116"
+     ]
+    }
+   ],
+   "source": [
+    "if 1\n",
+    "    println(\"hello\")\n",
+    "end "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "0aa81180",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "LoadError",
+     "evalue": "syntax: extra token \"(\" after end of expression",
+     "output_type": "error",
+     "traceback": [
+      "syntax: extra token \"(\" after end of expression",
+      "",
+      "Stacktrace:",
+      " [1] top-level scope",
+      "   @ In[6]:3",
+      " [2] eval",
+      "   @ .\\boot.jl:360 [inlined]",
+      " [3] include_string(mapexpr::typeof(REPL.softscope), mod::Module, code::String, filename::String)",
+      "   @ Base .\\loading.jl:1116"
+     ]
+    }
+   ],
+   "source": [
+    "if Bool(1)\n",
+    "    println(\"hello\")\n",
+    "end()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "2861a427",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "\"Less\""
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "i = 1\n",
+    "str = if i > 1\n",
+    "    \"Greater\"\n",
+    "else\n",
+    "    \"Less\"\n",
+    "end"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "9cae8775",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "\"Less\""
+      ]
+     },
+     "execution_count": 8,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "str = i > 1 ? \"Greater\" : \"Less\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "bf84ea5b",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "\"six\""
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "val = 6\n",
+    "if val == 4\n",
+    "    \"four\"\n",
+    "elseif val == 5\n",
+    "    \"five\"\n",
+    "elseif val == 6\n",
+    "    \"six\"\n",
+    "elseif val == 7\n",
+    "    \"seven\"\n",
+    "else\n",
+    "    \"unknown\"\n",
+    "end"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "f198e6e0",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "\"six\""
+      ]
+     },
+     "execution_count": 10,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "if val == 5\n",
+    "    \"five\"\n",
+    "elseif val == 6\n",
+    "    \"six\"\n",
+    "elseif val == 7\n",
+    "    \"seven\"\n",
+    "elseif val == 8\n",
+    "    \"eight\"\n",
+    "else\n",
+    "    if val >= 5\n",
+    "        \"above five\"\n",
+    "    else\n",
+    "        \"below five\"\n",
+    "    end\n",
+    "end"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "0989fb09",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "55"
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "begin\n",
+    "    s = 0\n",
+    "    n = 10\n",
+    "@label loop\n",
+    "    s = s + n\n",
+    "    n = n - 1\n",
+    "    if n > 0\n",
+    "        @goto loop\n",
+    "    end\n",
+    "    s\n",
+    "end"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "a20ce390",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "55"
+      ]
+     },
+     "execution_count": 12,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "s = 0\n",
+    "for i = 1:10\n",
+    "    s = s + i\n",
+    "end\n",
+    "s"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "76f3f40c",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "3\n",
+      "5\n",
+      "7\n",
+      "9\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "25"
+      ]
+     },
+     "execution_count": 13,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "s = 0;\n",
+    "for i = 1:2:10\n",
+    "    println(i)\n",
+    "    s = s + i\n",
+    "end\n",
+    "s"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "a91d34a9",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "2\n",
+      "4\n",
+      "5\n",
+      "7\n",
+      "8\n",
+      "10\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "37"
+      ]
+     },
+     "execution_count": 14,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "s = 0;\n",
+    "for i = 1:10\n",
+    "    if i % 3 == 0\n",
+    "        continue\n",
+    "    end\n",
+    "    println(i)\n",
+    "    s = s + i\n",
+    "end\n",
+    "s"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "04e1d47a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "2\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "3"
+      ]
+     },
+     "execution_count": 15,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "s = 0;\n",
+    "for i = 1:10\n",
+    "    if i % 3 == 0\n",
+    "        break\n",
+    "    end\n",
+    "    println(i)\n",
+    "    s = s + i\n",
+    "end\n",
+    "s\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "id": "8110a397",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "5\n",
+      "10\n",
+      "15\n"
+     ]
+    }
+   ],
+   "source": [
+    "for i in [5 10 15]\n",
+    "    println(i)\n",
+    "end"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "bcaca0de",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(1, 1)\n",
+      "(1, 2)\n",
+      "(2, 1)\n",
+      "(2, 2)\n",
+      "(3, 1)\n",
+      "(3, 2)\n"
+     ]
+    }
+   ],
+   "source": [
+    "for i=1:3, j=1:2\n",
+    "    println((i, j))\n",
+    "end"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "f219d434",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(1, 1)\n"
+     ]
+    }
+   ],
+   "source": [
+    "for i=1:3, j=1:2\n",
+    "    println((i, j))\n",
+    "    if i == j\n",
+    "        break\n",
+    "    end\n",
+    "end\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "a1086731",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(1, 1)\n",
+      "(2, 1)\n",
+      "(2, 2)\n",
+      "(3, 1)\n",
+      "(3, 2)\n"
+     ]
+    }
+   ],
+   "source": [
+    "for i=1:3\n",
+    "    for j=1:2\n",
+    "        println((i, j))\n",
+    "        if i == j\n",
+    "            break\n",
+    "        end\n",
+    "    end\n",
+    "end"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "id": "ace24e9d",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "55"
+      ]
+     },
+     "execution_count": 20,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "s, n = 0, 10;\n",
+    "while n > 0\n",
+    "    s = s + n\n",
+    "    n = n - 1\n",
+    "end\n",
+    "s"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "id": "e5ce131e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "DomainError(-1.0, \"sqrt will only return a complex result if called with a complex argument. Try sqrt(Complex(x)).\")\n"
+     ]
+    }
+   ],
+   "source": [
+    "try\n",
+    "    sqrt(-1)\n",
+    "catch e\n",
+    "    println(e)\n",
+    "end\n",
+    "\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "id": "fd503891",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "LoadError",
+     "evalue": "DomainError with -1.0:\nsqrt will only return a complex result if called with a complex argument. Try sqrt(Complex(x)).",
+     "output_type": "error",
+     "traceback": [
+      "DomainError with -1.0:\nsqrt will only return a complex result if called with a complex argument. Try sqrt(Complex(x)).",
+      "",
+      "Stacktrace:",
+      " [1] throw_complex_domainerror(f::Symbol, x::Float64)",
+      "   @ Base.Math .\\math.jl:33",
+      " [2] sqrt",
+      "   @ .\\math.jl:582 [inlined]",
+      " [3] sqrt(x::Int64)",
+      "   @ Base.Math .\\math.jl:608",
+      " [4] top-level scope",
+      "   @ In[22]:1",
+      " [5] eval",
+      "   @ .\\boot.jl:360 [inlined]",
+      " [6] include_string(mapexpr::typeof(REPL.softscope), mod::Module, code::String, filename::String)",
+      "   @ Base .\\loading.jl:1116"
+     ]
+    }
+   ],
+   "source": [
+    "sqrt(-1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "id": "ee50288c",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "LoadError",
+     "evalue": "DomainError with -1.0:\nsqrt will only return a complex result if called with a complex argument. Try sqrt(Complex(x)).",
+     "output_type": "error",
+     "traceback": [
+      "DomainError with -1.0:\nsqrt will only return a complex result if called with a complex argument. Try sqrt(Complex(x)).",
+      "",
+      "Stacktrace:",
+      " [1] throw_complex_domainerror(f::Symbol, x::Float64)",
+      "   @ Base.Math .\\math.jl:33",
+      " [2] sqrt",
+      "   @ .\\math.jl:582 [inlined]",
+      " [3] sqrt(x::Int64)",
+      "   @ Base.Math .\\math.jl:608",
+      " [4] top-level scope",
+      "   @ In[23]:2",
+      " [5] eval",
+      "   @ .\\boot.jl:360 [inlined]",
+      " [6] include_string(mapexpr::typeof(REPL.softscope), mod::Module, code::String, filename::String)",
+      "   @ Base .\\loading.jl:1116"
+     ]
+    }
+   ],
+   "source": [
+    "try \n",
+    "    sqrt(-1)\n",
+    "catch e\n",
+    "    rethrow()\n",
+    "end"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "id": "b40cf18e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Int64\n"
+     ]
+    }
+   ],
+   "source": [
+    "try\n",
+    "    throw(1)\n",
+    "catch e\n",
+    "    println(typeof(e))\n",
+    "end"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "id": "1de19d3d",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "12-element Vector{Base.StackTraces.StackFrame}:\n",
+       " throw_complex_domainerror(f::\u001b[0mSymbol, x::\u001b[0mFloat64) at math.jl:33\n",
+       " sqrt at math.jl:582 [inlined]\n",
+       " sqrt(x::\u001b[0mInt64) at math.jl:608\n",
+       " top-level scope at In[25]:2\n",
+       " eval at boot.jl:360 [inlined]\n",
+       " include_string(mapexpr::\u001b[0mtypeof(REPL.softscope), mod::\u001b[0mModule, code::\u001b[0mString, filename::\u001b[0mString) at loading.jl:1116\n",
+       " softscope_include_string(m::\u001b[0mModule, code::\u001b[0mString, filename::\u001b[0mString) at SoftGlobalScope.jl:65\n",
+       " execute_request(socket::\u001b[0mZMQ.Socket, msg::\u001b[0mIJulia.Msg) at execute_request.jl:67\n",
+       " #invokelatest#2 at essentials.jl:708 [inlined]\n",
+       " invokelatest at essentials.jl:706 [inlined]\n",
+       " eventloop(socket::\u001b[0mZMQ.Socket) at eventloop.jl:8\n",
+       " (::IJulia.var\"#15#18\")() at task.jl:417"
+      ]
+     },
+     "execution_count": 25,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "try\n",
+    "    sqrt(-1)\n",
+    "catch e\n",
+    "    stacktrace(catch_backtrace())\n",
+    "end"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "8ebaa065",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Julia 1.6.7",
+   "language": "julia",
+   "name": "julia-1.6"
+  },
+  "language_info": {
+   "file_extension": ".jl",
+   "mimetype": "application/julia",
+   "name": "julia",
+   "version": "1.6.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
